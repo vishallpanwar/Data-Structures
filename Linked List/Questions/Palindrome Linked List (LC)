@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        vector<int>v;
+
+        while(head){
+            v.push_back(head->val);
+            head=head->next;
+        }
+
+        vector<int> c(v.begin(), v.end());
+        reverse(c.begin(), c.end());
+
+        if(c==v)
+        return true;
+
+        else
+        return false;
+    }
+};
