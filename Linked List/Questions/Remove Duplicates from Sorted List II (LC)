@@ -1,0 +1,21 @@
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* nxtDiff = head, *cur = head, *nhead = NULL, *tail = NULL;
+
+        while(cur){
+            while(nxtDiff && nxtDiff->val == cur->val) nxtDiff = nxtDiff->next;
+            if(cur->next == nxtDiff){
+                if(!nhead){
+                    nhead = cur; tail = cur;
+                }else {
+                    tail->next = cur; tail = tail->next;
+                } 
+            }
+            cur = nxtDiff;
+        }
+        
+        if(tail) tail->next = NULL;
+        return nhead;
+    }
+};
