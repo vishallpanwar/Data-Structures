@@ -1,0 +1,9 @@
+void preorder_traversal(Node * root, vector<int> &v){
+    
+    if(root==NULL)
+    return;
+    
+    v.push_back(root->data);
+    preorder_traversal(root->left, v);
+    preorder_traversal(root->right, v);
+}
