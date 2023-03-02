@@ -1,0 +1,15 @@
+void post_order(Node * root, vector<int> &v){
+    
+    if(root==NULL)
+    return;
+    
+    post_order(root->left, v);
+    post_order(root->right, v);
+    v.push_back(root->data);
+}
+vector <int> postOrder(Node* root)
+{
+  vector<int> v;
+  post_order(root, v);
+  return v;
+}
