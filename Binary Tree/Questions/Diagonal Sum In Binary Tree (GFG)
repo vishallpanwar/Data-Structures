@@ -1,0 +1,21 @@
+void helper(Node* root, map<int, int>&mp, int i){
+
+    if(root){
+
+         mp[i]+=root->data;
+         if(root->right) helper(root->right, mp, i);
+         if(root->left) helper(root->left, mp, i+1);
+     }   
+}
+
+vector <int> diagonalSum(Node* root) {
+
+vector<int>result;
+map<int, int>mp;
+helper(root, mp, 0);
+
+for(auto x: mp)
+  result.push_back(x.second);
+return result ;
+
+}
