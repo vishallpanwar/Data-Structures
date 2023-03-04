@@ -1,0 +1,22 @@
+class Solution
+{
+    public:
+    
+    int areMirror(Node* a, Node* b) {
+    
+    if(a==NULL and b==NULL){
+        return true;
+    }
+    if(a==NULL or b==NULL){
+        return false;
+    }
+    if(a->data!=b->data){
+        return false;
+    }
+    int ls=areMirror(a->left,b->right);
+    int rs=areMirror(a->right,b->left);
+    
+    return ls and rs;
+    }
+
+};
