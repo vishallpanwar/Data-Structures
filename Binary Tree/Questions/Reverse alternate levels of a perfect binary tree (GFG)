@@ -1,0 +1,16 @@
+void solve(Node * root1, Node * root2, int i){
+    
+    if(root1==NULL || root2==NULL)
+    return;
+    
+    if(i%2==0)
+    swap(root1->data, root2->data);
+    
+    solve(root1->left,root2->right,i+1);
+    solve(root1->right,root2->left,i+1);
+}
+
+void reverseAlternate(Node *root)
+{
+    solve(root->left, root->right, 0);
+}
