@@ -1,0 +1,25 @@
+class Solution{
+public:	
+	
+	int print2largest(int arr[], int n) {
+
+     int largest=arr[0];
+     int secondlargest=-1;
+
+    for(int i=1;i<n;i++){
+
+        if(arr[i]>largest){ // used to give the previous element as the second largest
+
+            secondlargest=largest;
+            largest=arr[i];
+        }
+
+        else if(arr[i]<largest && arr[i]>secondlargest){
+
+            secondlargest=arr[i];
+        }
+    }
+    return secondlargest;
+
+ }
+};
