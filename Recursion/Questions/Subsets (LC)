@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> ans;
+    void helper(vector<int> s,vector<int> a, int index){
+        if(s.size()==index){
+            ans.push_back(a);
+            return;
+        } 
+
+        helper(s,a,index+1);
+        a.push_back(s[index]);
+        helper(s,a,index+1);
+        return;
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> a;
+        helper(nums,a,0);
+        return ans;
+    }
+};
