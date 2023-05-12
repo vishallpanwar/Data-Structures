@@ -1,0 +1,27 @@
+void solve(stack<int>&s,int val){
+
+    if(s.empty()||(!s.empty() && s.top()<val)){
+        
+        s.push(val);
+        return;
+    }
+
+      int num=s.top();
+      s.pop();
+      
+      solve(s,val);
+      s.push(num);
+}
+
+void SortedStack :: sort(){
+    
+       if(s.empty())
+       return;
+
+       int num=s.top();
+       s.pop();
+       
+       sort();
+
+       solve(s,num);
+}
