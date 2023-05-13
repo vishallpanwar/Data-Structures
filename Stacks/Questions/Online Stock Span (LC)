@@ -1,0 +1,27 @@
+class StockSpanner {
+public:
+
+    stack <pair<int,int> > st;
+    
+    StockSpanner() {
+        
+    }
+    
+    int next(int price) {
+        
+        int span=1;
+
+        // Agr st ! empty and stack ka top ka price curr price se 
+        // agr km hai to aage uska snap bhi add krdo and pop it 
+        while(!st.empty() && st.top().first <= price){
+
+            span+=st.top().second;
+            st.pop();
+        }
+
+        // Push isiliye krenge kyuki jb agla nikalenge to prev ka bhi to 
+        // store hona chahiye
+        st.push({price, span});
+        return span;
+    }
+};
